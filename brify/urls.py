@@ -16,10 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from records.views import create_record #, calendar_handler
+from records.views import create_record, home
+from news.views import calNews, forNews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('calendar/<str:date>/', calendar_handler),
-    path('calendar/<str:date>/', create_record),
+    path('calendar/', create_record, name='create_record'),
+    #path('calendar/<str:date>/', home, name='home'),
+    path('news/', forNews)
 ]
